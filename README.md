@@ -1,127 +1,124 @@
-**Data-Analysis-Project**
+**Delivery Data Cleaning & Preprocessing – Python Project**
 
-Analyzed food delivery data using Python to study delivery times, customer ratings, and city-wise performance. Cleaned data, removed outliers, extracted time features, and created insights on peak hours, delivery speed, and rating patterns to understand and improve delivery efficiency.
+This project focuses on cleaning, transforming, and preparing a delivery dataset for further analysis.
+The goal is to ensure the dataset is accurate, consistent, and ready for downstream analytics or modeling.
 
-**📌 Project Overview**
+📌 Project Objective
 
-This project analyzes food delivery performance and customer satisfaction across different cities.
-The goal is to understand:
+**To clean raw delivery data by:**
 
-• Delivery time patterns
+1.Fixing incorrect formats
 
-• City-wise performance
+2.Handling missing or inconsistent values
 
-• Rating distribution
+3.Removing outliers
 
-• Peak order hours
+4.Extracting time-based features
 
-• Relationship between speed & customer ratings
+5.Improving the dataset structure for analysis
 
-• Impact of outliers on insights
+**This project highlights essential data-wrangling skills using Python and Pandas.**
 
+🛠 Tools & Libraries
 
-**🛠️ Tools & Technologies**
+Python
 
-• Python
+Pandas
 
-• Pandas
+NumPy
 
-• NumPy
+Jupyter Notebook / Google Colab
 
-• Matplotlib / Seaborn
+📁 Dataset Overview
 
-• Google Colab
+The dataset contains delivery-related features such as:
 
-**📁 Dataset Used**
+order_time
 
-The dataset includes:
+city
 
-• Order time
+delivery_time_mins
 
-• City
+rating
 
-• Delivery time (mins)
+Delivery partner information
 
-• Customer rating
+🔧 Steps Performed
+1. Data Loading
 
-**Delivery partner details**
+Imported and previewed the dataset to understand structure, column types, and initial issues.
 
-📊 Key Steps in the Project
-**1. Data Cleaning**
+2. Data Cleaning
+
+Performed essential cleanup steps:
 
 Converted order_time to datetime
 
-Extracted new time-based features (hour, date)
+Standardized column types
 
-Removed outliers:
+Checked and handled missing values
+
+Cleaned inconsistent entries
+
+3. Feature Engineering
+
+Created useful new columns:
+
+hour – extracted from timestamp
+
+date – used for daily trend analysis
+
+Additional derived fields (optional)
+
+Example Code:
+
+df['hour'] = df['order_time'].dt.hour
+df['date'] = df['order_time'].dt.date
+
+4. Outlier Removal
+
+Removed unrealistic delivery times to avoid skewed results.
+
+Code Used:
 
 df = df[df['delivery_time_mins'] <= 180]
 
 
-Handled missing values and corrected data types
+This ensures data quality and reliability.
 
-**2. Feature Engineering**
+5. Data Quality Checks
 
-Extracted hour, date, weekday
+Verified no invalid values remain
 
-Created city-level metrics
+Confirmed consistent city entries
 
-Calculated average delivery time & rating per city
+Ensured all rows follow correct formats
 
-Prepared datasets for visualization
+📈 Key Insights (From Clean Dataset)
 
-**3. Exploratory Data Analysis (EDA)**
+(Even without visualization, you can mention observations from cleaned data)
 
-• Delivery time distribution
+Evening hours show higher order frequency
 
-• City-wise performance
+Ratings tend to drop for higher delivery times
 
-• Rating distribution
+Some cities consistently show faster delivery service
 
-• Peak ordering hours
+Outliers significantly inflated average delivery time before cleaning
 
-• Delivery time vs rating relationship
+▶️ How to Run the Project
 
-**4. Visualizations Created**
+Install required packages:
 
-Bar chart: average delivery time by city
+pip install pandas numpy
 
-Bar chart: city-wise rating comparison
 
-Hour-wise ordering pattern
-
-Scatter plot: delivery time vs rating
-
-Distribution plots for delivery time & ratings
-
-**📈 Insights**
-
-• Some cities consistently deliver faster.
-
-• Faster deliveries receive higher customer ratings.
-
-• Evening hours show peak order volume.
-
-• Removing outliers improves clarity of insights.
-
-**▶️ How to Run the Project**
-
-1. Install Required Libraries
-pip install pandas numpy matplotlib seaborn
-
-2. Open the Notebook
-
-Open:
-
+Open the notebook:
 Food_Delivery_Analysis.ipynb
 
-3. Run All Cells
+Run cells in order to reproduce cleaning steps.
 
-View visualizations
-
-Interpret insights
-
-**👤 Author**
+👤 Author
 
 Masilamani D
 Aspiring Data Analyst
